@@ -18,7 +18,7 @@ st.set_page_config(
 ) 
 # Sidebar
 st.sidebar.title("Dashboard Contents")
-sidebar_image = Image.open("C:/Users/Sayan/Documents/Saghar/Bootcamp/clean_energy_analysis/Energy1.jpeg") 
+sidebar_image = Image.open("Path_to/Energy1.jpeg") 
 st.sidebar.image(sidebar_image, use_column_width= True) 
 
 alt.themes.enable("dark") 
@@ -28,7 +28,7 @@ This dashboard provides a detailed overview of various energy production trends 
 """)
  
 # Loading file and converting the date into the right format   
-data = pd.read_csv("C:/Users/Sayan/Documents/Saghar/Bootcamp/clean_energy_analysis/Panel format (2).csv") 
+data = pd.read_csv("Path_to/Panel format (2).csv") 
 data["Year"] = pd.to_datetime(data["Year"],format="%Y")
 data['Year'] = data['Year'].dt.year
 name_corrections = {
@@ -54,7 +54,7 @@ st.write("Click on a country to select it.")
 # Creating the map and selecting the country
 @st.cache_data 
 def load_geodata():
-    world = gpd.read_file(r"C:/Users/Sayan/Documents/Saghar/Bootcamp/clean_energy_analysis/ne_110m_admin_0_countries.shp")
+    world = gpd.read_file(r"Path_to/ne_110m_admin_0_countries.shp")
     return world
 
 def create_map(world):
@@ -257,7 +257,7 @@ with st.expander(f"Click to view the top 5 producers for {energy_types_options[s
 st.markdown("---")
 st.markdown("<a name='section3'></a>", unsafe_allow_html=True)
 st.header(f"Analysis of clean energy in the World") 
-main_image = Image.open("C:/Users/Sayan/Documents/Saghar/Bootcamp/clean_energy_analysis/clean_energy.jpg") 
+main_image = Image.open("Path_to/clean_energy.jpg") 
 st.image(main_image , width=500)
 
 # Subsection 3.1
